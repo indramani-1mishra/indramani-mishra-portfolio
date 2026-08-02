@@ -1,15 +1,14 @@
 "use client";
 
-import { Suspense, useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Suspense, useRef, useState, useEffect } from "react";
+import { Canvas } from "@react-three/fiber";
 import { Float, useTexture, Html } from "@react-three/drei";
 import * as THREE from "three";
 import { ExternalLink, Loader2 } from "lucide-react";
+import Image from "next/image";
 
 function ProjectTexture({ url }: { url: string }) {
-  // Load texture with crossOrigin set to anonymous to avoid CORS issues
-  const textureUrl = url === '/safehand_lifecare.png' ? url : url; 
-  const texture = useTexture(textureUrl);
+  const texture = useTexture(url);
   
   return (
     <Float rotationIntensity={0.8} floatIntensity={2} speed={3}>
@@ -21,32 +20,52 @@ function ProjectTexture({ url }: { url: string }) {
   );
 }
 
-
-
 export default function ProjectCard3D({ project }: { project: any }) {
   const [hovered, setHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
   const imageUrl = project.title === 'Safehand Lifecare' ? '/safehand_lifecare.png' : project.image;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div 
       className="group bg-gray-50 dark:bg-gray-900 rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:shadow-2xl transition-all duration-500 flex flex-col relative"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ transform: hovered ? 'translateY(-8px)' : 'none' }}
+      style={{ transform: hovered && !isMobile ? 'translateY(-8px)' : 'none' }}
     >
-      <div className="relative h-64 w-full bg-gray-200 dark:bg-gray-800 overflow-hidden">
-        {/* Glow behind 3D object */}
+      <div className="relative h-64 w-full bg-gray-250 dark:bg-gray-800 overflow-hidden select-none">
+        {/* Glow behind card */}
         <div className="absolute inset-0 bg-blue-500/10 dark:bg-blue-900/20 mix-blend-overlay z-0"></div>
         
-        <Canvas camera={{ position: [0, 0, 3.5], fov: 50 }} className="z-10" gl={{ antialias: true, alpha: true }}>
-          <Suspense fallback={
-            <Html center>
-              <Loader2 className="animate-spin text-blue-500" size={30} />
-            </Html>
-          }>
-            <ProjectTexture url={imageUrl} />
-          </Suspense>
-        </Canvas>
+        {isMobile ? (
+          <div className="relative w-full h-full">
+            <Image 
+              src={imageUrl} 
+              alt={project.title} 
+              fill 
+              sizes="(max-width: 768px) 100vw, 400px"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+        ) : (
+          <Canvas camera={{ position: [0, 0, 3.5], fov: 50 }} className="z-10" gl={{ antialias: true, alpha: true }}>
+            <Suspense fallback={
+              <Html center>
+                <Loader2 className="animate-spin text-blue-500" size={30} />
+              </Html>
+            }>
+              <ProjectTexture url={imageUrl} />
+            </Suspense>
+          </Canvas>
+        )}
 
         {/* Floating Category Tag */}
         <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end z-20 pointer-events-none">
@@ -68,7 +87,7 @@ export default function ProjectCard3D({ project }: { project: any }) {
             href={project.link} 
             target="_blank" 
             rel="noreferrer" 
-            className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-xl font-bold transition-all w-full shadow-md shadow-blue-500/20 hover:shadow-blue-500/40"
+            className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-650 hover:from-blue-750 hover:to-indigo-700 text-white px-5 py-2.5 rounded-xl font-bold transition-all w-full shadow-md shadow-blue-500/20 hover:shadow-blue-500/40"
           >
             Live Preview <ExternalLink size={18} />
           </a>

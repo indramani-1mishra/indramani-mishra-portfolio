@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://indramani-mishra-portfolio.vercel.app"),
   title: "Indramani Mishra - Full Stack Developer (MERN & Next.js)",
   description: "Professional portfolio of Indramani Mishra. Specialized in creating fast, scalable, and SEO-friendly web/app solutions using Next.js and MERN stack. Available for Hire and New Projects.",
   keywords: ["Indramani Mishra", "Full Stack Developer", "MERN Stack", "Next.js Developer", "Web Development", "App Development", "Software Engineer", "React Developer", "New Delhi", "Chirag Delhi"],

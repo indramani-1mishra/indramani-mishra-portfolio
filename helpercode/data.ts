@@ -1,82 +1,83 @@
 export const projectsData = [
   {
     title: "Safehand Lifecare",
-    link: "https://www.safehandlifecare.com/",
-    description: "A comprehensive healthcare portal focused on delivering scalable, mobile-responsive appointment booking and service listing modules.",
-    category: "Next.js & MERN Stack",
+    link: "https://safehandlifecare.com",
+    description: "A full-stack home healthcare & caregiver management portal built with Next.js and MERN. Features real-time worker tracking (WebSocket), browser-native WebRTC video verification, STUN/TURN servers, custom RBAC, and automated CCAvenue payments.",
+    category: "Next.js 16 & MERN & WebRTC",
     image: "https://images.unsplash.com/photo-1538108149393-cebb47dacd97?auto=format&fit=crop&q=80&w=1000",
+    technologies: ["Next.js 16", "React 19", "Node.js", "Express.js", "MongoDB", "Socket.io", "WebRTC", "AWS (EC2/S3)", "GitHub Actions", "Tailwind CSS v4"]
+  },
+  {
+    title: "Superwinnings",
+    link: "https://www.superwinnings.com/",
+    description: "High-traffic dynamic gaming and rewards platform handling real-time data synchronization with Socket.io. Features secure payment gateways, reward calculation algorithms, and complex client state managed via Redux Toolkit.",
+    category: "MERN Stack & Socket.io",
+    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=1000",
+    technologies: ["React.js", "Express.js", "Socket.io", "MongoDB", "Redux Toolkit"]
+  },
+  {
+    title: "TheGameIO",
+    link: "https://thegameio.com/",
+    description: "An interactive web application for online gaming with user-specific dashboards. Integrated real-time leaderboards, secure transaction history, and deployed on VPS servers to ensure high availability.",
+    category: "MERN Stack",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1000",
+    technologies: ["MERN Stack", "Redux", "Node.js", "Express.js", "MongoDB"]
+  },
+  {
+    title: "E-Commerce Business Website",
+    link: "https://github.com/indramani-1mishra",
+    description: "A full-scale e-commerce platform with product listing, cart, and order management. Features robust user authentication and a comprehensive admin panel for inventory control. Optimized for search engine ranking (SEO).",
+    category: "Full Stack MERN",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
+    technologies: ["React", "Node.js", "MongoDB", "Express.js"]
+  },
+  {
+    title: "PRX India",
+    link: "https://prxindia.com/",
+    description: "A robust corporate web platform engineered for superior performance and optimized for comprehensive search engine visibility (SEO) with server-side rendering.",
+    category: "Next.js",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000",
+    technologies: ["Next.js", "React", "Node.js", "Express.js", "MongoDB"]
   },
   {
     title: "Ann Techno",
     link: "https://www.anntechno.in/",
     description: "A corporate technology website showcasing technical services, crafted for maximum performance and an intuitive user experience with modern UI/UX principles.",
-    category: "Full Stack Development",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000",
-  },
-  {
-    title: "Superwinnings",
-    link: "https://www.superwinnings.com",
-    description: "High-traffic dynamic gaming platform handling real-time data synchronization. Features secure payment gateways and complex state management.",
-    category: "MERN Stack & Socket.io",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=1000",
-  },
-  {
-    title: "TheGameIO",
-    link: "https://thegameio.com",
-    description: "Interactive Gaming Web App with user-specific dashboards, real-time leaderboards, and secure transaction history deployed for high availability.",
-    category: "MERN Stack",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1000",
-  },
-  {
-    title: "PRX India",
-    link: "https://prxindia.com/",
-    description: "A robust corporate web platform engineered for superior performance and optimized for comprehensive search engine visibility (SEO).",
-    category: "Full Stack Next.js",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
-  },
-  {
-    title: "Eldeco Groups",
-    link: "https://eldecogroups.net/",
-    description: "Real estate platform with interactive property listings. Built to handle heavy image assets while ensuring fast load times and an immersive user interface.",
-    category: "Real Estate Portal",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000",
-  },
-  {
-    title: "Repairs Junction",
-    link: "https://repairsjunction.com/",
-    description: "A dynamic service booking web application designed to connect users with local repair professionals. Features intuitive navigation and service scheduling modules.",
-    category: "Service Booking Web App",
+    category: "React.js",
     image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1000",
+    technologies: ["React.js", "Tailwind CSS", "Node.js", "Nginx"]
   }
 ];
 
 export const skillsData = [
-  "Next.js", "React.js", "Redux Toolkit", "JavaScript (ES6+)", "Tailwind CSS", "HTML5", "CSS3",
-  "Node.js", "Express.js", "RESTful APIs", "JWT Authentication",
-  "MongoDB", "MySQL",
-  "AWS (S3, EC2)", "Hostinger VPS", "Static Hosting", "GoDaddy",
+  "Next.js 16", "React 19", "TypeScript", "Redux Toolkit", "JavaScript (ES6+)", "Tailwind CSS v4", "HTML5", "CSS3",
+  "Node.js", "Express.js 5.x", "RESTful APIs", "JWT Authentication", "Role-Based Access Control (RBAC)",
+  "WebSocket", "Socket.io", "WebRTC (RTCPeerConnection)", "STUN/TURN Servers",
+  "MongoDB (Mongoose)", "MySQL",
+  "AWS (S3, EC2)", "GitHub Actions (CI/CD)", "Nginx", "Hostinger VPS", "GoDaddy",
+  "Firebase Cloud Messaging (FCM)", "WhatsApp Cloud API", "Google Maps / Leaflet", "Puppeteer (PDF Generation)", "Payment Integrations (CCAvenue)",
   "Git", "GitHub", "Postman", "Vercel", "VS Code"
 ];
 
 export const servicesData = [
   {
     title: "SEO Friendly Website Development",
-    description: "Custom-built, fast, and SEO-optimized websites that rank well on Google and attract more clients.",
+    description: "Custom-built, fast, and SEO-optimized websites using Next.js 16 that rank well on search engines and attract more clients.",
     icon: "Globe"
   },
   {
-    title: "App Development",
-    description: "Scalable and responsive mobile and web applications tailored for your business needs using modern tech stacks.",
+    title: "Real-Time Web Applications",
+    description: "Architecting interactive real-time platforms with WebSocket/Socket.io (live location broadcasting, chat, instant status dashboards).",
     icon: "Smartphone"
   },
   {
-    title: "Hire Our Team / Developers",
-    description: "Looking to scale? Hire our expert team of developers or add us to your existing team to boost productivity.",
+    title: "WebRTC Communication Modules",
+    description: "Integrating secure browser-native video/audio calls and remote verification systems using RTCPeerConnection and STUN/TURN.",
     icon: "Users"
   },
   {
-    title: "E-Commerce Solutions",
-    description: "End-to-end e-commerce platforms with secure checkouts, admin panels, and real-time inventory tracking.",
+    title: "AWS Cloud & DevOps CI/CD",
+    description: "Configuring self-managed AWS EC2/S3 servers, Nginx proxies, and zero-touch auto-deployment pipelines via GitHub Actions.",
     icon: "ShoppingCart"
   }
 ];
@@ -132,6 +133,6 @@ export const contactInfo = {
 export const socialLinks = {
   github: "https://github.com/indramani-1mishra",
   linkedin: "https://www.linkedin.com/in/indramani-mishra-a7668b334",
-  vercel: "https://vercel.com/indramani-mishras-projects-c7011657",
+  vercel: "https://indramani-mishra-portfolio.vercel.app",
   netlify: "https://app.netlify.com/teams/indramani-1mishra/projects"
 };
