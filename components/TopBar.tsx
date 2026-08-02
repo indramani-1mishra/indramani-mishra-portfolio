@@ -14,7 +14,7 @@ export default function TopBar() {
   }, []);
 
   return (
-    <div className="bg-gray-900 text-white text-sm py-2 px-4 shadow-sm">
+    <div className="hidden md:block bg-gray-900 text-white text-sm py-2 px-4 shadow-sm">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0 text-gray-300">
         <div className="flex flex-wrap items-center gap-4 justify-center md:justify-start">
           <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-1 hover:text-white transition">

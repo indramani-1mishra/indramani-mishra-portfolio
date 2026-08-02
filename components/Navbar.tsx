@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, FileText } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,29 +64,37 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Nav */}
-      {isOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-gray-950/95 backdrop-blur-md shadow-lg border-b border-gray-200 dark:border-gray-800 animate-in slide-in-from-top duration-250">
-          <div className="flex flex-col px-6 py-6 space-y-4">
-            {links.map((item) => (
-              <Link 
-                key={item.name} 
-                href={item.path} 
-                className={`text-md font-semibold text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 py-1 ${item.name === 'Resume' ? 'text-blue-600 dark:text-blue-400 font-bold border-b border-blue-100 dark:border-blue-900/50 pb-2' : ''}`}
-                onClick={() => setIsOpen(false)}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden bg-white/95 dark:bg-gray-950/95 backdrop-blur-md shadow-lg border-b border-gray-200 dark:border-gray-800 overflow-hidden"
+          >
+            <div className="flex flex-col px-6 py-6 space-y-4">
+              {links.map((item) => (
+                <Link 
+                  key={item.name} 
+                  href={item.path} 
+                  className={`text-md font-semibold text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 py-1 ${item.name === 'Resume' ? 'text-blue-600 dark:text-blue-400 font-bold border-b border-blue-100 dark:border-blue-900/50 pb-2' : ''}`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name === 'Resume' && <FileText size={16} className="text-blue-500" />}
+                  {item.name}
+                </Link>
+              ))}
+              <button 
+                onClick={handleOpenEnquiry} 
+                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl font-bold text-center w-full shadow-md shadow-blue-500/15 border-none outline-none cursor-pointer"
               >
-                {item.name === 'Resume' && <FileText size={16} className="text-blue-500" />}
-                {item.name}
-              </Link>
-            ))}
-            <button 
-              onClick={handleOpenEnquiry} 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl font-bold text-center w-full shadow-md shadow-blue-500/15 border-none outline-none cursor-pointer"
-            >
-              Hire Me
-            </button>
-          </div>
-        </div>
-      )}
+                Hire Me
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

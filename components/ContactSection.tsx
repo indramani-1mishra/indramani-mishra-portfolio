@@ -97,7 +97,7 @@ export default function ContactSection() {
                 <div>
                   <h4 className="text-xl font-bold text-gray-900 dark:text-white">Email</h4>
                   <p className="text-gray-600 dark:text-gray-400 mt-1">
-                    <a href={`mailto:${contactInfo.email}`} className="hover:text-purple-600 dark:hover:text-purple-400 transition">{contactInfo.email}</a>
+                    <a href={`mailto:${contactInfo.email}`} className="hover:text-purple-600 dark:hover:text-purple-400 transition break-all">{contactInfo.email}</a>
                   </p>
                 </div>
               </div>
