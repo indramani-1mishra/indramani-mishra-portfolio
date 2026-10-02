@@ -3,9 +3,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import TopBar from "../components/TopBar";
+import WorkspaceShowcaseBanner from "../components/WorkspaceShowcaseBanner";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import QuickEnquiryModal from "../components/QuickEnquiryModal";
+import AIChatbot from "../components/AIChatbot";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -78,12 +80,15 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <TopBar />
+          <WorkspaceShowcaseBanner />
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />
           <QuickEnquiryModal />
+          <AIChatbot />
         </ThemeProvider>
       </body>
     </html>
   );
 }
+

@@ -4,8 +4,6 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import { 
   Printer, 
-  Copy, 
-  Check, 
   ArrowLeft, 
   Briefcase, 
   GraduationCap, 
@@ -14,16 +12,13 @@ import {
   Mail, 
   Phone, 
   MapPin, 
-  FileText,
   Search,
   ExternalLink
 } from "lucide-react";
 import { contactInfo, socialLinks } from "../../helpercode/data";
 
 export default function ResumePage() {
-  const [copied, setCopied] = useState(false);
   const [activeKeywords, setActiveKeywords] = useState<string[]>([]);
-  const [viewMode, setViewMode] = useState<"formatted" | "plain">("formatted");
   const printRef = useRef<HTMLDivElement>(null);
 
   const keywords = [
@@ -32,60 +27,16 @@ export default function ResumePage() {
     "WebSocket", "Nginx", "Puppeteer", "JWT", "RBAC", "STUN/TURN"
   ];
 
-  const resumeMarkdown = `INDRAMANI MISHRA
-Full Stack Developer (MERN & Next.js)
-Email: indramanimishra.es12@gmail.com | Phone: +91-7236005136
-Location: Chirag Delhi, New Delhi, India
-Portfolio: indramani-mishra-portfolio.vercel.app | GitHub: github.com/indramani-1mishra
-
-SUMMARY
-Full Stack Developer (MERN & Next.js) with hands-on experience architecting, building, and independently deploying production-grade web platforms. Skilled in real-time systems using WebSocket and Socket.io, and in building WebRTC-based audio/video communication modules. Experienced in end-to-end AWS deployment (self-managed EC2/S3 hosting) and setting up CI/CD pipelines with GitHub Actions for automated, zero-touch server deployment. Currently building Safehand Lifecare, a caregiver management platform.
-
-TECHNICAL SKILLS
-- Frontend: Next.js 16, React 19, TypeScript, Redux Toolkit, JavaScript (ES6+), Tailwind CSS v4, HTML5, CSS3
-- Backend: Node.js, Express.js 5.x, RESTful APIs, JWT Authentication, Role-Based Access Control (RBAC)
-- Real-Time & Audio/Video: WebSocket, Socket.io, WebRTC (RTCPeerConnection, MediaDevices API), STUN/TURN (Google STUN, Twilio TURN)
-- Database: MongoDB (Mongoose ODM), MySQL
-- Cloud & DevOps: AWS (EC2, S3), GitHub Actions (CI/CD), Hostinger VPS, GoDaddy Server Management, Nginx
-- Third-Party Integrations: Firebase Cloud Messaging (FCM), WhatsApp Cloud API, Google Maps API, Leaflet, Puppeteer, CCAvenue
-
-PROFESSIONAL EXPERIENCE
-Safehand Lifecare Private Limited | Full Stack Developer | 02/2026 - Present | New Delhi, India
-- Architected and independently developed Safehand Lifecare, a full-stack home healthcare and caregiver management platform, using Next.js 16 and the MERN stack for high performance and SEO.
-- Independently hosted and managed both frontend and backend on AWS (EC2 and S3), handling the complete deployment lifecycle end-to-end and maintaining 99.9% uptime.
-- Set up a CI/CD pipeline using GitHub Actions so that code pushed to the repository is automatically built and deployed to the production server.
-- Implemented real-time features using WebSocket and Socket.io, including live worker location broadcasting to the admin dashboard.
-- Built a browser-native WebRTC video calling module (RTCPeerConnection, MediaDevices API) with Socket.io signaling for remote video interviews.
-- Configured WebRTC ICE candidate resolution using Google STUN and Twilio TURN servers.
-- Designed a granular Role-Based Access Control (RBAC) system with custom middleware, and a multi-tier JWT authentication scheme.
-- Integrated AWS S3 for storage, Firebase FCM for background geolocation tracking, Google Maps/Leaflet for fleet tracking, and WhatsApp Cloud API.
-- Integrated secure payment gateway (CCAvenue) and automated PDF invoice generation using Puppeteer.
-
-Ekana Technologies Pvt Ltd. | Full Stack Developer | 09/2025 - 01/2026 | Lucknow, India
-- Developed high-traffic gaming platforms Superwinnings and TheGameIO using the MERN stack.
-- Implemented real-time features and complex state management with Redux Toolkit to handle dynamic gaming data.
-- Optimized MongoDB database queries, improving application response time by 40%.
-
-EDUCATION
-- Master of Computer Applications (MCA) | Maharishi University, Lucknow | Pursuing (Expected 2026)
-- Bachelor of Computer Applications (BCA) | U.P. Rajarshi Tandon Open University | Graduated 2025`;
-
-  const handlePrint = () => {
-    window.print();
-  };
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(resumeMarkdown);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   const toggleKeyword = (kw: string) => {
     if (activeKeywords.includes(kw)) {
       setActiveKeywords(activeKeywords.filter(k => k !== kw));
     } else {
       setActiveKeywords([...activeKeywords, kw]);
     }
+  };
+
+  const handlePrint = () => {
+    window.print();
   };
 
   // Helper to dynamically highlight active keywords in text strings
@@ -200,31 +151,6 @@ EDUCATION
           
           <div className="flex flex-wrap gap-3">
             <button
-              onClick={() => setViewMode(viewMode === "formatted" ? "plain" : "formatted")}
-              className="px-4 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 text-sm font-bold rounded-xl transition-all shadow-sm flex items-center gap-1.5 cursor-pointer border-none outline-none"
-            >
-              <FileText size={16} className="text-indigo-500" />
-              {viewMode === "formatted" ? "Raw Markdown Text" : "Interactive View"}
-            </button>
-
-            <button
-              onClick={handleCopy}
-              className="px-4 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 text-sm font-bold rounded-xl transition-all shadow-sm flex items-center gap-1.5 cursor-pointer border-none outline-none"
-            >
-              {copied ? (
-                <>
-                  <Check size={16} className="text-green-500" />
-                  <span>Copied!</span>
-                </>
-              ) : (
-                <>
-                  <Copy size={16} className="text-blue-500" />
-                  <span>Copy ATS Raw Text</span>
-                </>
-              )}
-            </button>
-
-            <button
               onClick={handlePrint}
               className="px-5 py-2 bg-gradient-to-r from-blue-600 to-indigo-650 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-extrabold rounded-xl transition-all shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 flex items-center gap-1.5 cursor-pointer border-none outline-none"
             >
@@ -234,9 +160,8 @@ EDUCATION
           </div>
         </div>
 
-        {/* ATS Keyword Scan Overlay - Only shown in Formatted Mode */}
-        {viewMode === "formatted" && (
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-6 rounded-3xl shadow-sm no-print space-y-4">
+        {/* ATS Keyword Scan Overlay */}
+        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-6 rounded-3xl shadow-sm no-print space-y-4">
             <div className="flex items-center gap-2">
               <Cpu size={20} className="text-blue-500" />
               <h3 className="text-lg font-bold">Interactive ATS Keyword Highlighter</h3>
@@ -271,27 +196,14 @@ EDUCATION
               )}
             </div>
           </div>
-        )}
 
         {/* Resume Content Container */}
         <div 
           ref={printRef}
           className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800/80 p-4 sm:p-8 md:p-12 rounded-3xl shadow-xl resume-container"
         >
-          {viewMode === "plain" ? (
-            /* PLAIN TEXT VIEW (ATS Friendly Copy/Paste) */
-            <div className="no-print">
-              <div className="flex justify-between items-center pb-4 border-b border-gray-100 dark:border-gray-800 mb-6">
-                <h3 className="text-md font-bold text-gray-500">ATS Raw Text Preview</h3>
-                <span className="text-xs text-gray-400">Standard formatting, best for copy/pasting.</span>
-              </div>
-              <pre className="text-xs sm:text-sm font-mono whitespace-pre-wrap leading-relaxed text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-950 p-6 rounded-2xl border border-gray-200 dark:border-gray-900">
-                {resumeMarkdown}
-              </pre>
-            </div>
-          ) : (
-            /* FORMATTED RICH ATS VIEW (Perfect Print Styles) */
-            <div className="space-y-8 print-container">
+          {/* FORMATTED RICH ATS VIEW (Perfect Print Styles) */}
+          <div className="space-y-8 print-container">
               
               {/* Header */}
               <div className="resume-header text-center pb-6 border-b-2 border-gray-900 dark:border-gray-100">
@@ -528,7 +440,6 @@ EDUCATION
               </div>
 
             </div>
-          )}
         </div>
 
       </div>

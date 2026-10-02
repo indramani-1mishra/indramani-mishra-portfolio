@@ -57,14 +57,6 @@ export default function QuickEnquiryModal() {
 
   return (
     <>
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-2xl transition-transform hover:scale-110 flex items-center justify-center animate-bounce"
-        aria-label="Quick Enquiry"
-      >
-        <MessageSquare size={24} />
-      </button>
-
       {isOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in duration-200">

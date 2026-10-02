@@ -8,51 +8,51 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-24 pb-36 overflow-hidden bg-gradient-to-br from-blue-50 to-white dark:from-gray-950 dark:to-gray-900">
+    <section className="relative pt-8 pb-14 sm:pt-16 sm:pb-24 overflow-hidden bg-gradient-to-br from-blue-50 to-white dark:from-gray-950 dark:to-gray-900">
       <Background3D />
       
       {/* Decorative Blur Spheres */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-blue-500/10 dark:bg-blue-400/5 blur-3xl z-0"></div>
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-purple-500/10 dark:bg-purple-400/5 blur-3xl z-0"></div>
 
-      <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 max-w-6xl">
+      <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12 max-w-6xl">
         
         {/* Left Content */}
         <motion.div 
           initial={{ opacity: 0, x: -35 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex-1 space-y-6 text-center lg:text-left max-w-2xl"
+          className="flex-1 space-y-3.5 sm:space-y-5 text-center lg:text-left max-w-2xl"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full font-bold text-xs border border-blue-100 dark:border-blue-900/50 shadow-sm animate-pulse">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-4 sm:py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full font-bold text-[11px] sm:text-xs border border-blue-100 dark:border-blue-900/50 shadow-xs animate-pulse">
             <span>Available for Remote & Local Opportunities</span> 🚀
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight font-sans tracking-tight">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight font-sans tracking-tight">
             Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-650">Indramani Mishra</span>
           </h1>
           
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+          <h2 className="text-lg xs:text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200">
             Full Stack Developer (MERN & Next.js)
           </h2>
           
-          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-medium">
+          <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-medium">
             Specialized in architecting high-performance systems with real-time features (WebSockets/Socket.io), browser-native WebRTC communications, and self-managed cloud architectures on AWS with robust CI/CD automation.
           </p>
           
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-2.5 sm:gap-3.5 pt-2 sm:pt-3">
             <button 
               onClick={() => window.dispatchEvent(new Event('openEnquiry'))} 
-              className="group flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-650 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-3.5 rounded-xl font-extrabold text-md transition-all shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5 border-none outline-none cursor-pointer"
+              className="group flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-650 hover:from-blue-700 hover:to-indigo-700 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5 border-none outline-none cursor-pointer"
             >
-              Hire Me <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <span>Hire Me</span> <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </button>
             
             <Link 
               href="/resume" 
-              className="flex items-center gap-2 bg-white dark:bg-gray-900 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-800 hover:border-blue-600 dark:hover:border-blue-500/50 px-8 py-3.5 rounded-xl font-extrabold text-md transition-all hover:-translate-y-0.5 shadow-sm shadow-black/5 hover:shadow-md"
+              className="flex items-center justify-center gap-2 bg-white dark:bg-gray-900 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-800 hover:border-blue-600 dark:hover:border-blue-500/50 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm transition-all hover:-translate-y-0.5 shadow-xs hover:shadow-md"
             >
-              <FileText size={18} className="text-blue-500" /> Interactive ATS Resume
+              <FileText size={15} className="text-blue-500" /> <span>ATS Resume</span>
             </Link>
           </div>
         </motion.div>

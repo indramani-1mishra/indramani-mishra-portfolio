@@ -41,7 +41,7 @@ export const projectsData = [
   },
   {
     title: "Ann Techno",
-    link: "https://www.anntechno.in/",
+    link: "https://anntechnonewwebsitebyindramani.netlify.app/",
     description: "A corporate technology website showcasing technical services, crafted for maximum performance and an intuitive user experience with modern UI/UX principles.",
     category: "React.js",
     image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1000",
