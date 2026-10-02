@@ -1,21 +1,21 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { 
-  RiSendPlaneFill, 
-  RiCloseLine, 
-  RiRefreshLine, 
-  RiFullscreenLine, 
-  RiFullscreenExitLine, 
-  RiFileCopyLine, 
-  RiCheckLine, 
-  RiWhatsappLine, 
-  RiBriefcaseLine, 
-  RiCodeSSlashLine, 
-  RiCodeBoxLine, 
-  RiPriceTag3Line, 
-  RiFileLine, 
-  RiArrowRightLine, 
+import {
+  RiSendPlaneFill,
+  RiCloseLine,
+  RiRefreshLine,
+  RiFullscreenLine,
+  RiFullscreenExitLine,
+  RiFileCopyLine,
+  RiCheckLine,
+  RiWhatsappLine,
+  RiBriefcaseLine,
+  RiCodeSSlashLine,
+  RiCodeBoxLine,
+  RiPriceTag3Line,
+  RiFileLine,
+  RiArrowRightLine,
   RiUser3Line,
   RiMailSendLine,
   RiCheckboxCircleFill,
@@ -38,11 +38,12 @@ interface Message {
 }
 
 const SUGGESTIONS = [
+  { label: "Who is Indramani?", icon: RiUser3Line, color: "text-amber-500" },
   { label: "I want to hire Indramani", icon: RiBriefcaseLine, color: "text-blue-500" },
   { label: "Website Pricing & Packages", icon: RiPriceTag3Line, color: "text-emerald-500" },
   { label: "Key Projects & Work", icon: RiCodeBoxLine, color: "text-indigo-500" },
   { label: "Tech Stack & Skills", icon: RiCodeSSlashLine, color: "text-purple-500" },
-  { label: "Who is Indramani?", icon: RiUser3Line, color: "text-amber-500" },
+
 ];
 
 const WELCOME_VOICE_TEXT = "Thank you for visiting Indramani Mishra's portfolio! I am his AI Assistant. Feel free to explore his projects, technical skills, services, and pricing, or chat with me to get started.";
@@ -305,7 +306,7 @@ export default function AIChatbot() {
 
   // Handle direct In-Chat Requirement Submission via EmailJS
   const handleInChatMessageSubmit = async (
-    msgId: string, 
+    msgId: string,
     reqData: { name: string; email: string; phone: string; service: string; message: string },
     auto: boolean = false
   ) => {
@@ -496,11 +497,10 @@ export default function AIChatbot() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 60, scale: 0.95 }}
               transition={{ type: "spring", damping: 28, stiffness: 340 }}
-              className={`pointer-events-auto flex flex-col bg-white dark:bg-gray-900 border-0 sm:border border-gray-200 dark:border-gray-800 shadow-2xl overflow-hidden transition-all duration-300 z-50 ${
-                isExpanded
-                  ? "w-full sm:w-[700px] h-[100dvh] sm:h-[82vh] sm:max-h-[820px] rounded-none sm:rounded-3xl"
-                  : "w-full sm:w-[440px] h-[100dvh] sm:h-[630px] rounded-none sm:rounded-3xl"
-              }`}
+              className={`pointer-events-auto flex flex-col bg-white dark:bg-gray-900 border-0 sm:border border-gray-200 dark:border-gray-800 shadow-2xl overflow-hidden transition-all duration-300 z-50 ${isExpanded
+                ? "w-full sm:w-[700px] h-[100dvh] sm:h-[82vh] sm:max-h-[820px] rounded-none sm:rounded-3xl"
+                : "w-full sm:w-[440px] h-[100dvh] sm:h-[630px] rounded-none sm:rounded-3xl"
+                }`}
             >
               {/* Header */}
               <div className="bg-gradient-to-r from-blue-600 via-indigo-650 to-purple-650 text-white px-3.5 sm:px-4 py-3 sm:py-3.5 flex items-center justify-between shadow-sm relative shrink-0">
@@ -536,9 +536,8 @@ export default function AIChatbot() {
                       }
                     }}
                     title={isSpeaking ? "Mute Voice" : "Play Voice Greeting"}
-                    className={`p-1.5 sm:p-2 rounded-xl transition-colors border-none cursor-pointer flex items-center justify-center ${
-                      isSpeaking ? "bg-yellow-400 text-gray-950 animate-pulse font-bold" : "text-white/80 hover:text-white hover:bg-white/15 bg-transparent"
-                    }`}
+                    className={`p-1.5 sm:p-2 rounded-xl transition-colors border-none cursor-pointer flex items-center justify-center ${isSpeaking ? "bg-yellow-400 text-gray-950 animate-pulse font-bold" : "text-white/80 hover:text-white hover:bg-white/15 bg-transparent"
+                      }`}
                     aria-label="Toggle Voice"
                   >
                     {isSpeaking ? <RiVolumeUpLine size={16} /> : <RiVolumeMuteLine size={16} />}
@@ -594,7 +593,7 @@ export default function AIChatbot() {
               )}
 
               {/* Messages Body with ultra-sleek scrollbar */}
-              <div 
+              <div
                 className="flex-1 p-3 sm:p-4 overflow-y-auto space-y-3 bg-gray-50/60 dark:bg-gray-950/50 chat-scrollbar"
                 style={{
                   scrollbarWidth: "thin",
@@ -622,11 +621,10 @@ export default function AIChatbot() {
 
                       <div className={`max-w-[90%] sm:max-w-[82%] flex flex-col ${msg.sender === "user" ? "items-end" : "items-start"}`}>
                         <div
-                          className={`p-2.5 sm:p-3.5 rounded-2xl relative group shadow-xs transition-all ${
-                            msg.sender === "user"
-                              ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-tr-xs"
-                              : "bg-white dark:bg-gray-800/90 text-gray-800 dark:text-gray-100 border border-gray-200/80 dark:border-gray-700/70 rounded-tl-xs"
-                          }`}
+                          className={`p-2.5 sm:p-3.5 rounded-2xl relative group shadow-xs transition-all ${msg.sender === "user"
+                            ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-tr-xs"
+                            : "bg-white dark:bg-gray-800/90 text-gray-800 dark:text-gray-100 border border-gray-200/80 dark:border-gray-700/70 rounded-tl-xs"
+                            }`}
                         >
                           {msg.sender === "user" ? (
                             <p className="whitespace-pre-wrap text-xs sm:text-sm font-medium">{msg.text}</p>
